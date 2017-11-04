@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px}
+        #container{height:100%}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wS8GQ6fNBbmTPdmqqfUyK0nLaYySuy6M"></script>
+        <script>
+            var point;
+            var map;
+            //显示地图
+            function show(p) {
+               map=new BMap.Map("first");
+
+                if(p){
+                    point=new BMap.Point(p.point.lng,p.point.lat);
+                }else{
+                    point=new BMap.Point(113.65,34.76);
+                }
+
+                map.centerAndZoom(point,12);
+            }
+            //定位
+            function GPS() {
+                var x=new BMap.Geolocation();
+                x.getCurrentPosition(function (d) {
+                    show(d);
+                });
+            }
+            //行政位置
+            function code() {
+                var x=new BMap.Geocoder();
+                x.getLocation(point,function (d) {
+                    alert(d.address);
+                });
+            }
+            //搜索
+            function search() {
+                var s= new BMap.LocalSearch(map,{
+                    renderOptions:{map:map,autoViewport:true}
+                });
+                s.searchNearby("川菜","纬五路");
+
+            }
+
+            //导航
+            function nav() {
+                var s = new BMap.WalkingRoute(map,{
+                    renderOptions:{map:map,autoViewport:true}
+                })
+                s.search("新乡","郑州");
+                
+            }
+
+        </script>
+
+
+
+</head>
+<body>
+<div id="first" style="width: 500px;height: 600px"></div>
+<button onclick="show()">显示地图</button>
+<button onclick="GPS()">定位</button>
+<button onclick="code()">行政位置</button>
+<button onclick="search()">搜索</button>
+<button onclick="nav()">导航</button>
+</body>
+</html>

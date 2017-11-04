@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="echarts.min.js"></script>
+    <script>
+        function bar() {
+            var chart=echarts.init(document.getElementById("first"));
+            var option={
+                xAxis:{
+                    data:["郑州","杭州","北京","广州"]
+                },
+                yAxis:{},
+                series:{
+                    type:"bar",
+                    data:[4500,11000,13000,22000]
+                }
+
+            }
+            chart.setOption(option);
+            
+        }
+        
+        function pie() {
+            var chart=echarts.init(document.getElementById("first"))
+            var option={
+                backgroundColor: '#2c343c',
+
+                visualMap:{
+                    show:false,
+                    min:80,
+                    max:600,
+                    inRange:{
+                        colorLightness:[0,1]
+                    },
+                },
+                tooltip:{
+                    rigger:"item",
+                    formatter:"{a}<br/>{b}{c}",
+                },
+                series:{
+                    type:"pie",
+                    data:[
+                        {name:"郑州",value:300},
+                        {name:"南京",value:400},
+                        {name:"新乡",value:200},
+                        {name:"北京",value:100}
+
+                    ]
+
+                }            }
+            chart.setOption(option);
+            
+        }
+    </script>
+</head>
+<body>
+
+<div id="first" style="width: 500px;height: 600px"></div>
+<button onclick="bar()">柱形图</button>
+<button onclick="pie()">饼状图</button>
+
+</body>
+</html>

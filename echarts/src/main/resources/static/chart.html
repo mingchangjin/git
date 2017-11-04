@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="echarts.js"></script>
+    <script src="bmap.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wS8GQ6fNBbmTPdmqqfUyK0nLaYySuy6M"></script>
+
+    <script>
+        function pm() {
+           var  chart = echarts.init(document.getElementById("first"));
+            var option={
+                tooltip:{
+                    trigger:"item",
+                    formatter:"{b}<br/>{c}"
+
+                },
+                bmap:{
+                    center:[113.65,34.76],
+                    zoom:5,
+                    roam:true
+                },
+                series:[{
+                    type:"effectScatter",
+                    coordinateSystem:"bmap",
+                    data:[
+                        {name:"郑州",value:[113.65,34.76,500]}
+                    ],
+                }]
+            };
+            chart.setOption(option);
+        }
+
+        function line() {
+            var chart = echarts.init(document.getElementById("first"));
+            var option={
+                bmap:{
+                    center:[113.65,34.76],
+                    zoom:5,
+                    roam:true
+                },
+                series:[{
+                    type:"lines",
+                    coordinateSystem:"bmap",
+                    effect: {
+                        show: true,
+                        period: 6,
+                        trailLength: 0.7,
+                        color: '#1f3',
+                        symbolSize: 15
+                    },
+                    data:[
+                        {fromName:"北京",toName:"上海",coords:[
+                            [116.46,39.92],[121.48,31.22]
+
+                        ]}
+                    ]
+                }],
+
+            };
+            chart.setOption(option);
+
+        }
+
+    </script>
+</head>
+
+<body>
+<div id="first" style="width: 600px;height: 500px"></div>
+<button onclick="pm()">pm</button>
+<button onclick="line()">航线</button>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="echarts.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wS8GQ6fNBbmTPdmqqfUyK0nLaYySuy6M"></script>
+
+    <script>
+        function pm() {
+            var x = echarts.init(document.getElementById("first"))
+            var option={
+                bmap:{
+                    center:[113.65,34.76],
+                    zoom:5
+                },
+                series:[{
+                    type:"effectScatter",
+                    coordinateSystem:"bmap",
+                    data:[
+                        {name:"郑州",value:[113.65,34.76,500]}
+                    ]
+                }]
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="first"style="width: 500px;height: 600px"></div>
+<button onclick="pm()">pm</button>
+
+</body>
+</html>
