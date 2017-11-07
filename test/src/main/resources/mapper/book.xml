@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qqf.dao.BookDao">
+    <parameterMap id="m1" type="map">
+        <parameter property="x" mode="IN" javaType="Integer"></parameter>
+        <parameter property="y" mode="OUT" jdbcType="VARCHAR"></parameter>
+    </parameterMap>
+
+    <parameterMap id="m2" type="map">
+        <parameter property="x" mode="IN" javaType="Integer"></parameter>
+        <parameter property="y" mode="OUT" jdbcType="INTEGER"></parameter>
+
+    </parameterMap>
+    <select id="first" statementType="CALLABLE" parameterMap="m2">
+        {call p9(?,?)}
+    </select>
+    
+    <select id="first1" statementType="CALLABLE" parameterMap="m1">
+        {call p10(?,?)}
+    </select>
+
+
+</mapper>
