@@ -2,7 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="D:\idier\mall\p2p" vcs="Git" />
-    <mapping directory="D:\idier\mall\restful\mall" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/p2p" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/restful/mall" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/restful/p2p" vcs="Git" />
   </component>
 </project>
